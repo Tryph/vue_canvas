@@ -19,27 +19,27 @@ export default {
       // so child components will update when `context` changes.
       provider: {
         // This is the CanvasRenderingContext that children will draw to.
-        context: null
-      }
-    }
+        context: null,
+      },
+    };
   },
 
   // Allows any child component to `inject: ['provider']` and have access to it.
-  provide () {
+  provide() {
     return {
-      provider: this.provider
-    }
+      provider: this.provider,
+    };
   },
 
-  mounted () {
+  mounted() {
     // We can't access the rendering context until the canvas is mounted to the DOM.
     // Once we have it, provide it to all child components.
-    this.provider.context = this.$refs['day-canvas'].getContext('2d')
+    this.provider.context = this.$refs['day-canvas'].getContext('2d');
 
     // Resize the canvas to fit its parent's width.
     // Normally you'd use a more flexible resize system.
     this.$refs['day-canvas'].width = this.Width;
     this.$refs['day-canvas'].height = this.height;
-  }
-}
+  },
+};
 </script>

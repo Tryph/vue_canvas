@@ -54,6 +54,7 @@ export default {
     },
   },
 
+  // eslint-disable-next-line vue/require-render-return
   render() {
     // Since the parent canvas has to mount first, it's *possible* that the context may not be
     // injected by the time this render function runs the first time.
