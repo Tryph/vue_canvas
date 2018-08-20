@@ -1,63 +1,31 @@
 <template>
   <div id="app">
-    <h2>Bar Chart Example</h2>
-    <!-- These are the custom components we'll create -->
-    <!-- Values for `my-box` are percentages of the width of the canvas. -->
-    <!-- Each bar will take up an equal space of the canvas. -->
-    <my-canvas style="width: 100%; height: 600px;">
-      <my-box
-        v-for="obj, index of chartValues"
-        :x1="((index / chartValues.length) * 100)"
-        :x2="((index / chartValues.length) * 100) + (100 / chartValues.length)"
-        :y1="100"
-        :y2="100 - obj.val"
-        :color="obj.color"
-        :value="obj.val"
-      >
-      </my-box>
-    </my-canvas>
+    <h2>Program Example</h2>
+    <day-program width="500" height="500">
+      <show v-for="show in shows" v-bind="show" v-bind:key="`show-${show.id}`"/>
+    </day-program>
   </div>
 </template>
 
 <script>
-import MyCanvas from '@/components/MyCanvas';
-import MyBox from '@/components/MyBox';
+import DayProgram from '@/components/DayProgram';
+import Show from '@/components/Show';
 
 export default {
   name: 'app',
   components: {
-    MyCanvas,
-    MyBox,
+    DayProgram,
+    Show,
   },
 
   data() {
     return {
-      chartValues: [
-        { val: 24, color: 'red' },
-        { val: 32, color: '#0f0' },
-        { val: 66, color: 'rebeccapurple' },
-        { val: 1, color: 'green' },
-        { val: 28, color: 'blue' },
-        { val: 60, color: 'rgba(150, 100, 0, 0.2)' },
+      shows: [
+        { id: '1', spectacle: 'Batman Contre Robespierre', time: 32400, duration: 3600 },
+        { id: '2', spectacle: 'Le Grenier à Pepe', time: 37800, duration: 2700 },
+        { id: '3', spectacle: 'Nola Radio', time: 46800, duration: 3600 },
       ],
     };
-  },
-
-  // Randomly selects a value to randomly increment or decrement every 16 ms.
-  // Not really important, just demonstrates that reactivity still works.
-  mounted() {
-    let dir = 1;
-    let selectedVal = Math.floor(Math.random() * this.chartValues.length);
-
-    setInterval(() => {
-      if (Math.random() > 0.995) dir *= -1;
-      if (Math.random() > 0.99) selectedVal = Math.floor(Math.random() * this.chartValues.length);
-
-      this.chartValues[selectedVal].val = Math.min(
-        Math.max(
-          this.chartValues[selectedVal].val + (dir * 0.5), 0,
-        ), 100);
-    }, 16);
   },
 };
 </script>
