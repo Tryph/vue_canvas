@@ -1,8 +1,13 @@
 <template>
   <div id="app">
     <h2>Program Example</h2>
-    <day-program width="500" height="500">
-      <show v-for="show in shows" v-bind="show" v-bind:key="`show-${show.id}`"/>
+    <day-program
+      width="500"
+      height="500">
+      <show
+        v-for="show in shows"
+        v-bind="show"
+        :key="`show-${show.id}`"/>
     </day-program>
   </div>
 </template>
@@ -12,7 +17,7 @@ import DayProgram from '@/components/DayProgram';
 import Show from '@/components/Show';
 
 export default {
-  name: 'app',
+  name: 'App',
   components: {
     DayProgram,
     Show,

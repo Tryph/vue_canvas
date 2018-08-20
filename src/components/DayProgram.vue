@@ -1,7 +1,7 @@
 <template>
   <div>
-    <canvas ref="day-canvas"></canvas>
-    <slot></slot>
+    <canvas ref="day-canvas" />
+    <slot />
   </div>
 </template>
 

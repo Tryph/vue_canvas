@@ -1,7 +1,7 @@
 <template>
   <div class="my-canvas-wrapper">
-    <canvas ref="my-canvas"></canvas>
-    <slot></slot>
+    <canvas ref="my-canvas" />
+    <slot />
   </div>
 </template>
 
