@@ -2,8 +2,10 @@
   <div id="app">
     <h2>Program Example</h2>
     <day-program
-      width="500"
-      height="500">
+      :width="200"
+      :height="1442">
+      <Hours />
+      <Quarters />
       <show
         v-for="show in shows"
         v-bind="show"
@@ -14,12 +16,16 @@
 
 <script>
 import DayProgram from '@/components/DayProgram';
+import Hours from '@/components/Hours';
+import Quarters from '@/components/Quarters';
 import Show from '@/components/Show';
 
 export default {
   name: 'App',
   components: {
     DayProgram,
+    Hours,
+    Quarters,
     Show,
   },
 

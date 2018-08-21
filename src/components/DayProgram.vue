@@ -10,7 +10,7 @@ export default {
 
   props: {
     height: { type: Number, required: true },
-    Width: { type: Number, required: true },
+    width: { type: Number, required: true },
   },
 
   data() {
@@ -38,7 +38,7 @@ export default {
 
     // Resize the canvas to fit its parent's width.
     // Normally you'd use a more flexible resize system.
-    this.$refs['day-canvas'].width = this.Width;
+    this.$refs['day-canvas'].width = this.width;
     this.$refs['day-canvas'].height = this.height;
   },
 };
